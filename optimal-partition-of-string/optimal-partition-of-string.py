@@ -1,13 +1,14 @@
 class Solution:
     def partitionString(self, s: str) -> int:
         ans = 0
-        d = {}
+        d = set()
 
         for i in s:
             if i not in d:
-                d[i] = None
+                d.add(i)
             else:
                 ans += 1
-                d = {i: None}
+                d = set()
+                d.add(i)
 
         return ans + 1
